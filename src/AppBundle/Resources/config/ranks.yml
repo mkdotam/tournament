@@ -1,0 +1,12 @@
+soldier:
+  title: Soldier
+  moves: 5
+  requiredPoints: 0
+sergeant:
+  title: Sergeant
+  moves: 7
+  requiredPoints: 12
+lieutenant:
+  title: Lieutenant
+  moves: 9
+  requiredPoints: 24

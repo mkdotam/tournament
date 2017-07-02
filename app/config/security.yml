@@ -1,0 +1,25 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/security.html
+security:
+  firewalls:
+
+    secured_area:
+      pattern: ^/api/(player|games)
+      stateless: true
+      simple_preauth:
+        authenticator: api_key_authenticator
+      provider: api_key_user_provider
+
+    main:
+      pattern: ^/api
+      anonymous: ~
+
+  providers:
+    api_key_user_provider:
+      id: api_key_user_provider
+
+  access_control:
+    - { path: ^/api/, method: POST, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/api/games, roles: ROLE_API }
+    - { path: ^/api/player, roles: ROLE_API }
+

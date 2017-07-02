@@ -1,0 +1,9 @@
+services:
+  api_key_authenticator:
+    class:  ApiBundle\Security\ApiKeyAuthenticator
+    public: false
+
+  api_key_user_provider:
+    class: ApiBundle\Security\ApiKeyUserProvider
+    arguments: [@app_player_manager]
+

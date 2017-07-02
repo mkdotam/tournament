@@ -1,0 +1,10 @@
+#!/bin/sh
+
+rm -rf app/cache/dev
+rm -rf app/cache/prod
+rm -rf app/cache/test
+app/console doctrine:schema:update --force
+app/console cache:clear --env=prod
+app/console cache:clear --env=dev
+app/console cache:clear --env=test
+

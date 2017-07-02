@@ -1,0 +1,17 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+
+services:
+  app_player_manager:
+    class:  AppBundle\Manager\PlayerManager
+    arguments: [@doctrine.orm.entity_manager]
+
+  app_game_manager:
+    class: AppBundle\Manager\GameManager
+    arguments: [@doctrine.orm.entity_manager, @app_player_manager]
+
+  app_player_serializer:
+    class: AppBundle\Serializer\PlayerSerializer
+
+  app_game_serializer:
+    class: AppBundle\Serializer\GameSerializer
